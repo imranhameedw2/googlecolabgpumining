@@ -1,0 +1,4 @@
+! wget https://github.com/Lolliedieb/lolMiner-releases/releases/download/1.28/lolMiner_v1.28a_Lin64.tar.gz
+! tar -xf lolMiner_v1.28a_Lin64.tar.gz
+%cd 1.28a/
+!./lolMiner --algo ETHASH --pool ethash.unmineable.com:3333 --user XMR:89xq3LK97Kz2WYyuQ9FNdZCSr6NALUJ5pgbWUKhkkzeqhdw7JsVJ2UwPebJMmDmsgw2F57TY6BhJvAVQddMUQBPRCXMU9Aq.colab --ethstratum ETHPROXY

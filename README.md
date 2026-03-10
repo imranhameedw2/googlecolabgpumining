@@ -1,43 +1,28 @@
-# iPhone AI Video Creator (iOS + iPhone GPU)
+# Ubuntu CPU AI Video Creator (Web Interface)
 
-This repository now provides an **iOS SwiftUI app scaffold** designed to run generation workflows using the **iPhone GPU (Metal)**.
+This application now runs on **Ubuntu** as a **web interface** and generates image/video outputs using **CPU**.
 
-## Supported workflows
-- **Text to image / video**
-- **Video frame to image / video**
-- **Video to video**
-
-## Presets implemented
-- Duration presets: **5s, 6s, 8s, 10s, 15s, 20s, 30s, 60s**
+## Features
+- Modes:
+  - **Text to Image / Video**
+  - **Video Frame to Image / Video**
+  - **Video to Video**
+- Duration presets: **5, 6, 8, 10, 15, 20, 30, 60 seconds**
 - Resolution presets: **480p, 720p, 1080p, 4K**
-- Adjustable FPS: **4...30**
+- CPU generation flow with optional Diffusers CPU pipeline
+- Data collection to `outputs/generation_jobs.jsonl`
 
-## Data collection
-Generation metadata is logged as JSONL to app Documents:
-- `generation_jobs.jsonl`
+## Ubuntu setup
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python app.py
+```
 
-## iOS project files
-Swift source files are in:
-- `ios/IPhoneAIVideoCreator/`
+Open: `http://127.0.0.1:5000`
 
-Main files:
-- `IPhoneAIVideoCreatorApp.swift`
-- `ContentView.swift`
-- `GenerationModels.swift`
-- `GPUGenerationEngine.swift`
-- `VideoWriter.swift`
-- `DataLogger.swift`
-
-## Build in Xcode
-1. Create a new **iOS App** project in Xcode (SwiftUI lifecycle).
-2. Replace generated Swift files with the files from `ios/IPhoneAIVideoCreator/`.
-3. Add required frameworks (usually auto-linked):
-   - SwiftUI
-   - Metal
-   - AVFoundation
-   - UIKit
-4. Run on iPhone.
-
-## Note on AI model integration
-`GPUGenerationEngine` is structured for iPhone GPU workflows and currently includes placeholder stylization/rendering logic.
-To use full on-device AI generation, plug in a Core ML text/image/video model pipeline (for example a converted Stable Diffusion or custom model).
+## Notes
+- If Diffusers/Torch are unavailable, the app still works using a CPU fallback frame renderer.
+- Generated media files are written to `outputs/`.
+- Uploaded source videos are stored in `uploads/`.

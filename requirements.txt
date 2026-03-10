@@ -1,0 +1,9 @@
+flask
+opencv-python-headless
+Pillow
+numpy
+torch
+diffusers
+transformers
+accelerate
+safetensors
